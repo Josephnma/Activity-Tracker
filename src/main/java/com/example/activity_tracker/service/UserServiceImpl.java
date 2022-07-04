@@ -20,11 +20,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public void createUser(UserSignupDto userSignupDto) {
         User user1 = new User();
-            user1.setFirstName(userSignupDto.getName());
-            user1.setLastName(userSignupDto.getName());
-            user1.setEmail(userSignupDto.getEmail());
-            user1.setPassword(userSignupDto.getPassword());
-            user1.setAddress(userSignupDto.getAddress());
+            user1.setFirstName(user1.getFirstName());
+            user1.setLastName(user1.getLastName());
+            user1.setEmail(user1.getEmail());
+            user1.setPassword(user1.getPassword());
+            user1.setAddress(user1.getAddress());
             userRepo.save(user1);
     }
 
@@ -43,10 +43,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public User updateUser(UserUpdateDto userUpdateDto, String email) {
                User user = userRepo.findByEmail(email);
-                user.setFirstName(userUpdateDto.getFirstName());
-                user.setLastName(userUpdateDto.getLastName());
-               user.setEmail(userUpdateDto.getEmail());
-               user.setAddress(userUpdateDto.getAddress());
+                user.setFirstName(user.getFirstName());
+                user.setLastName(user.getLastName());
+               user.setEmail(user.getEmail());
+               user.setAddress(user.getAddress());
                 return  userRepo.save(user);
     }
 
