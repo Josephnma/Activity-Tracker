@@ -1,27 +1,22 @@
 package com.example.activity_tracker.controller;
 
-import com.example.activity_tracker.dto.UserSignupDto;
-import com.example.activity_tracker.model.User;
+import com.example.activity_tracker.dto.SignupDto;
 import com.example.activity_tracker.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/user")
+@RequiredArgsConstructor
 public class UserController {
-    private UserService userService;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     @PostMapping()
-    public void createUser(@Validated @RequestBody User user){
-        userService.createUser(new  UserSignupDto());
+    public void createUser(@RequestBody SignupDto signupDto){
+        userService.createUser(signupDto);
 }
 }
