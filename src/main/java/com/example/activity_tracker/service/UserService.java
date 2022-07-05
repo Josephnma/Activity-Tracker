@@ -1,7 +1,6 @@
 package com.example.activity_tracker.service;
 
 import com.example.activity_tracker.dto.UserSignUpDto;
-import com.example.activity_tracker.dto.UserSignUpDto;
 import com.example.activity_tracker.dto.UserUpdateDto;
 import com.example.activity_tracker.model.User;
 

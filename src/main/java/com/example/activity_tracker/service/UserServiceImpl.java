@@ -3,7 +3,6 @@
 package com.example.activity_tracker.service;
 
 import com.example.activity_tracker.dto.UserSignUpDto;
-import com.example.activity_tracker.dto.UserSignUpDto;
 import com.example.activity_tracker.dto.UserUpdateDto;
 import com.example.activity_tracker.model.User;
 import com.example.activity_tracker.repository.UserRepository;
@@ -23,11 +22,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public void createUser(UserSignUpDto userSignupDto) {
         User user1 = new User();
-        user1.setFirstName(user1.getFirstName());
-        user1.setLastName(user1.getLastName());
-        user1.setEmail(user1.getEmail());
-        user1.setPassword(user1.getPassword());
-        user1.setAddress(user1.getAddress());
+        user1.setName(userSignupDto.getName());
+        user1.setEmail(userSignupDto.getEmail());
+        user1.setPassword(userSignupDto.getPassword());
+        user1.setAddress(userSignupDto.getAddress());
         userRepo.save(user1);
     }
 
@@ -46,8 +44,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User updateUser(UserUpdateDto userUpdateDto, String email) {
         User user = userRepo.findByEmail(email);
-        user.setFirstName(user.getFirstName());
-        user.setLastName(user.getLastName());
+        user.setName(user.getName());
         user.setEmail(user.getEmail());
         user.setAddress(user.getAddress());
         return  userRepo.save(user);
